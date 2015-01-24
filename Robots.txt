@@ -28,7 +28,7 @@ Recruits
 		(4) 
 
 Happenings
-	Orbiting Laser Canon
+	Orbital Laser Canon
 		(2)
 		Destroy target recruit or target environment.
 
@@ -39,5 +39,5 @@ Happenings
 
 Environment
 	The Refactory
-		(3)
+		(3) 0
 		Pay 2 recruitment points: Summon a Support Bot.
