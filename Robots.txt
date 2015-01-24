@@ -1,7 +1,21 @@
 Commanders
 
 Recruits
+	Retrieval Unit
+		(0) 1/0/1
+		When this recruit dies, if there is a Retrieval Unit in your graveyard 
+		you may put that card in your hand.
+
+	Power Relay
+		(1) 1/2/2
+		1 MP: Remove 1 MP from target recruit.
 
 Happenings
+	Orbiting Laser Canon
+		(2)
+		Destroy target recruit or target environment.
 
 Environments
+	Disruption Field
+		Each turn your opponent's recruitment point total is halved. 
+		Destroy after two turns.

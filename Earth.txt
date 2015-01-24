@@ -20,5 +20,13 @@ Recruits
 		All recruits gain +2/0/0
 
 Happenings
+	Nature's Bounty
+		(2)
+		The next unit you use for recruiting gives you an extra 
+		recruitment point.
 
 Environments
+	Wildgrowth Thicket
+		(4) 0/4/0
+		1 MP: Target recruit gains 1 HP.
+		2 MP: Target recruit cannot deal damage until your next turn.
