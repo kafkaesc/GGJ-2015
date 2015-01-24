@@ -1,0 +1,23 @@
+Commanders
+	Nami, the Tidebringer
+	Huron, the Roving Ark
+
+Recruits
+	Piranha
+		(0) 0/0/3
+		Ability: Piranha gains +1/0/0 as long as another Piranha is in play.
+
+	Razortooth Leech
+		(1) 2/1/2
+		1 MP: The next time Razortooth Leech deals damage it gains that much health. 
+
+
+
+	Deepsea Leviathan
+		(4) 1/1/5
+		1 MP: 
+
+Happenings
+
+Environments
+	
