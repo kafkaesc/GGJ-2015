@@ -15,7 +15,12 @@ Happenings
 		(2)
 		Destroy target recruit or target environment.
 
-Environments
+	Energy Reroute
+		(3)
+		Move up to 2 MP from any target(s) to any other target(s) 
+		of your choice.
+
+Environment
 	Disruption Field
 		Each turn your opponent's recruitment point total is halved. 
 		Destroy after two turns.
