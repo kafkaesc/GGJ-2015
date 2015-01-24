@@ -17,7 +17,7 @@ Turn Cycle
 	Upkeep
 	Resource Growth
 	Happenings and Environments 
-	Attak Phase
+	Attack Phase
 	EOT
 
 Faction Cards
