@@ -1,0 +1,24 @@
+Commanders
+
+Recruits
+	Doe
+		(0) 1/0/2
+
+	Burrower
+		(1) 1/1/3
+		1 MP: Burrower is protected until the start of your next turn.
+
+	Pack Leader
+		(2) 2/1/2
+		1 MP: Summon a 1/0/1 Wolf recruit.
+
+	The Mighty Oak
+		(4) 2/1/4
+		1 MP: Choose one: 
+		All recruits gain 0/0/+2 
+		OR
+		All recruits gain +2/0/0
+
+Happenings
+
+Environments

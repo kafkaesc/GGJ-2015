@@ -1,0 +1,14 @@
+Types
+	Commanders
+	Recruits
+	Happenings
+	Environments
+
+Card Limits
+	Deck 20
+	Hand 4
+	One zero-drop per turn
+
+Win Conditions
+	Defeat enemy commander
+	Reach swarm count (7)
