@@ -7,8 +7,21 @@ Types
 Card Limits
 	Deck 20
 	Hand 4
-	One zero-drop per turn
+	Draw 1 card at end of turn
 
 Win Conditions
 	Defeat enemy commander
-	Reach swarm count (7)
+	Reach swarm count (10)
+
+Turn Cycle
+	Upkeep
+	Resource Growth
+	Happenings and Environments 
+	Attak Phase
+	EOT
+
+Faction Cards
+	2x  0-drop
+	2x  1-drop
+	2x  2-drp
+	1x  big-drop
