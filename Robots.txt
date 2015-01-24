@@ -16,10 +16,6 @@ Recruits
 		(1) 1/3/2
 		1 MP: Remove 1 MP from target recruit.
 
-	Shock Droid
-		(1) 1/2/2
-		1 MP: 
-
 	Angulator
 		(2) 1/0/4
 		At the beginning of each turn Angulator's HP and attack switch.

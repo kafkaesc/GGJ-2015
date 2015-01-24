@@ -6,14 +6,24 @@ Recruits
 	Imp
 		(0) 2/0/1
 
+	Nightmare
+		(0) 0/2/2
+		1 MP: Target recruit gets -1/0/0.
+
 	Stalker
 		(1) 1/1/1
 		Passive: When this recruit dies, return it to the plane at the end of 
 		combat.
 
+	Wall of Flesh
+		(2) 0/1/5
+		When you choose to attack, Wall of Flesh still defends.
+		1 MP: Wall of Flesh gains 0/0/+1.
+		-1 HP: Wall of Flesh gains 0/0/+1.
+
 	Demon of Ritual
-		(3) 6/1/6t
-		When this recruit enters play, lose half your life, rounded down.
+		(3) 6/1/6
+		When this recruit enters play, the commander loses 4 health.
 		Passive: -1 to recruit points every turn.
 
 Happenings
@@ -27,3 +37,5 @@ Happenings
 		damage to your own commander.
 
 Environments
+	Pit of Despair
+
