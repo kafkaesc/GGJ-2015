@@ -1,12 +1,21 @@
 Commanders
+	??? (Squirrel Hermit)
+	Uphavel, the Moving Mountain
 
 Recruits
 	Doe
 		(0) 1/0/2
 
+	Crab
+		(0) 2/0/1
+
 	Burrower
 		(1) 1/1/3
 		1 MP: Burrower is protected until the start of your next turn.
+
+	Piranha
+		(1) 2/0/2
+		If another Piranha is in play, this card gets +1/0/0.
 
 	Pack Leader
 		(2) 2/1/2
@@ -22,11 +31,12 @@ Recruits
 Happenings
 	Nature's Bounty
 		(2)
-		The next unit you use for recruiting gives you an extra 
+		Draw a card. The next unit you use for recruiting gives you an extra 
 		recruitment point.
 
 Environments
 	Wildgrowth Thicket
-		(4) 0/4/0
-		1 MP: Target recruit gains 1 HP.
-		2 MP: Target recruit cannot deal damage until your next turn.
+		(3) 0/3/0
+		1 MP: Target recruit gains +2 HP.
+		Sacrifice: Target recruit cannot deal damage until your next turn.
+

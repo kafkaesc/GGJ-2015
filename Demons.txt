@@ -1,0 +1,35 @@
+Commanders
+	Cruentus, Bleeder of All
+	The Abyssal
+
+Recruits
+	Imp
+		(0) 2/0/1
+
+	Stalker
+		(1) 1/1/1
+		Passive: When this recruit dies, return it to the plane at the end of 
+		combat.
+
+	Living Dead
+		(2) 3/1/1/
+		Passive: When this recruit dies add a 0/0/1 Undead Torso and a 0/0/1 
+		Undead Legs.
+
+	Demon of Ritual
+		(3) 6/1/6t
+		When this recruit enters play, lose half your life, rounded down.
+		Passive: -1 to recruit points every turn.
+
+Happenings
+	
+
+Environments
+	Desperate Pact
+		(2)
+		Lose 4 life. Draw 3 cards.
+
+	Inferno
+		(4)
+		Deal 5 damage to each commander, 2 damage to each recruit, and deal 3 
+		damage to your own commander.
