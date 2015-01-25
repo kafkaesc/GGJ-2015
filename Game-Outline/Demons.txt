@@ -20,7 +20,7 @@ Recruits
 		<S> 1 MP: Deal Doom Reacher's attack to an opponent's commander 
 		or recruit.
 		JH: I imagine Doom Reacher as a shadowy, crawling demon with an 
-		elongated arm reaching out to hurt someone.
+		elongated arm reaching out to hurt someone
 
 	Wall of Flesh
 		(2) 0/1/5
