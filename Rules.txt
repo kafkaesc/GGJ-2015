@@ -14,11 +14,13 @@ Win Conditions
 	Reach swarm count (10)
 
 Turn Cycle
-	Upkeep
-	Resource Growth
-	Happenings and Environments 
-	Attack Phase
-	EOT
+	1. Resolve Environment Effects
+	2. Recruite Phase
+	3. Happenings
+	4. Battle Phase
+		4.1. Declare Attack/Defense
+		4.2. Resolve Attacks
+	5. Clean-up Phase
 
 Faction Cards
 	2x  0-drop
