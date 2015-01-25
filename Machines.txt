@@ -28,7 +28,7 @@ Recruits
 	Galvanizer
 		(4) 4/0/4
 		<S> When Galvanizer enters play choose an opponent's recruit. That 
-		recruit deals no damage until the next turn.
+		recruit deals no damage until the end of turn.
 
 Happenings
 	Orbital Laser Canon

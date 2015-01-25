@@ -40,4 +40,4 @@ Environments
 	Wildgrowth Thicket
 		(3) 3
 		1 MP: Target recruit gains +2 HP.
-		Sacrifice: Target recruit cannot deal damage until the next turn.
+		Sacrifice: Target recruit cannot deal damage until the end of turn.

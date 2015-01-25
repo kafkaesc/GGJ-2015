@@ -16,7 +16,7 @@ Win Conditions
 Turn Cycle
 	1. Resolve Environment Effects
 	2. Recruite Phase
-	3. Happenings
+	3. Happenings & Abilities
 	4. Battle Phase
 		4.1. Declare Attack/Defense
 		4.2. Resolve Attacks
