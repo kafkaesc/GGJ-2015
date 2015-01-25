@@ -6,14 +6,14 @@ public class GameManagerScript : MonoBehaviour
     public GameObject Player1;
     //public GameObject Player2;
     
-    private PlayerManagerScript Player1Manager;
+    //private PlayerManagerScript Player1Manager;
     //private PlayerManagerScript Player2Manager;
 
 	// Use this for initialization
 	void Start () 
     {
-        if (Player1)
-            Player1Manager = Player1.GetComponent<PlayerManagerScript>();
+        //if (Player1)
+            //Player1Manager = Player1.GetComponent<PlayerManagerScript>();
 
         //if (Player2)
         //    Player2Manager = Player2.GetComponent<PlayerManagerScript>();
@@ -23,8 +23,7 @@ public class GameManagerScript : MonoBehaviour
 	void Update () 
     {
 	    // Phase 1: Resolve Environment Effects - Players choose effects of environments            -- Each player choose targets for their environment; if that player has one
-        if (Player1Manager.isEnvironmentActive())
-            Player1Manager.moveRequiredFlag = true;
+        
         // Phase 2: Recruit Phase - Players choose to use Recruitment points for Recruiting         -- Each player given a minute to summon more creatures
         
         // Phase 3: Happenings - Players choose to use Recruitment points for Happenings            -- Players given 45 seconds to play any spells
