@@ -22,10 +22,13 @@ Recruits
 
 	Synchronized Minibots
 		(3) 3/1/3
-		<S> Passive: When Synchronized Minibots dies 
+		<S> Passive: When Synchronized Minibots dies put two 0/1/1 Minibots 
+		into play.
 
-	Shock Droid
-		(4) 
+	Galvanizer
+		(4) 4/0/4
+		<S> When Galvanizer enters play choose an opponent's recruit. That 
+		recruit deals no damage until the next turn.
 
 Happenings
 	Orbital Laser Canon

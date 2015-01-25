@@ -1,5 +1,5 @@
 Commanders
-	??? (Squirrel Hermit)
+	Nami, the Tidebringer	
 	Uphavel, the Moving Mountain
 
 Recruits
@@ -11,7 +11,7 @@ Recruits
 
 	Burrower
 		(1) 1/1/3
-		<S> 1 MP: Burrower is protected until the start of your next turn.
+		<S> 1 MP: Burrower is protected until the start of the next turn.
 
 	Piranha
 		(1) 2/0/2
@@ -22,11 +22,9 @@ Recruits
 		<S> 1 MP: Summon a 1/0/1 Wolf recruit.
 
 	The Mighty Oak
-		(4) 2/1/4
+		(5) 2/1/4
 		<S> 1 MP: Choose one: 
-		All recruits gain 0/0/+2 
-		OR
-		All recruits gain +2/0/0
+		All recruits gain 0/0/+2 OR all recruits gain +2/0/0
 
 Happenings
 	Nature's Bounty
@@ -34,9 +32,12 @@ Happenings
 		Draw a card. The next unit you use for recruiting gives you an extra 
 		recruitment point.
 
+	Locust Swarm
+		(3)
+		Recruit two 1/0/1 Locust recruits.
+
 Environments
 	Wildgrowth Thicket
 		(3) 3
 		1 MP: Target recruit gains +2 HP.
-		Sacrifice: Target recruit cannot deal damage until your next turn.
-
+		Sacrifice: Target recruit cannot deal damage until the next turn.
