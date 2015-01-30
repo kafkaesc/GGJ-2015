@@ -3,20 +3,19 @@ using System.Collections;
 
 public class GameManagerScript : MonoBehaviour 
 {
-    public GameObject Player1;
-    //public GameObject Player2;
-    
-    //private PlayerManagerScript Player1Manager;
-    //private PlayerManagerScript Player2Manager;
+    public TextManagerScript textManager;
+
+    private PlayerManagerScript Player1Manager;
+    private PlayerManagerScript Player2Manager;
 
 	// Use this for initialization
 	void Start () 
     {
-        //if (Player1)
-            //Player1Manager = Player1.GetComponent<PlayerManagerScript>();
+        if (!Player1Manager)
+            Player1Manager = GameObject.Find("p1_Side").GetComponent<PlayerManagerScript>();
 
-        //if (Player2)
-        //    Player2Manager = Player2.GetComponent<PlayerManagerScript>();
+        if (!Player2Manager)
+            Player2Manager = GameObject.Find("p2_Side").GetComponent<PlayerManagerScript>();
 	}
 	
 	// Update is called once per frame

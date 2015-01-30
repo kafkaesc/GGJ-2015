@@ -49,6 +49,8 @@
      <Compile Include="Assets\CardWrapperScript.cs" />
      <Compile Include="Assets\GameManagerScript.cs" />
      <Compile Include="Assets\PlayerManagerScript.cs" />
+     <Compile Include="Assets\SwarmLocationScript.cs" />
+     <Compile Include="Assets\TextManagerScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>

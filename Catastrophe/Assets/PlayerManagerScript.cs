@@ -7,23 +7,57 @@ public class PlayerManagerScript : MonoBehaviour
     const int STARTING_HAND_SIZE = 4;
     const int MAX_HAND_SIZE = 6;
     const int MAX_SWARM_SIZE = 10;
+    const float CARD_DEPTH_Z = 3.0f;
 
 
     int currentHandSize;
     public GameObject card;    
 
     /* Variables for Player Mouse I/O */
-    bool selectFlag;
-    GameObject selectTarget;
+    bool clickFlag;
+    GameObject clickTarget;
 
     /* Board Positions */
     Vector3[] spawn_position;
     Vector3[] swarm_positions;
     GameObject[] swarm_creatures;
-    Vector2 playmatBounds;
+    //Vector2 playmatBounds;
 
 
+    void setConstants()
+    {
+        //GameObject playmat = GameObject.Find("p1_Battlefield");
 
+        //playmatBounds = new Vector2(playmat.transform.position.y - (playmat.transform.lossyScale.y / 2.0f),
+          //                              playmat.transform.position.y + (playmat.transform.lossyScale.y / 2.0f));
+
+        spawn_position[0] = GameObject.Find("p1_Hand_Card_0").transform.position;
+        spawn_position[1] = GameObject.Find("p1_Hand_Card_1").transform.position;
+        spawn_position[2] = GameObject.Find("p1_Hand_Card_2").transform.position;
+        spawn_position[3] = GameObject.Find("p1_Hand_Card_3").transform.position;
+        spawn_position[4] = GameObject.Find("p1_Hand_Card_4").transform.position;
+        spawn_position[5] = GameObject.Find("p1_Hand_Card_5").transform.position;
+
+        swarm_positions[0] = GameObject.Find("p1_Battlefield_Card_0").transform.position;
+        swarm_positions[1] = GameObject.Find("p1_Battlefield_Card_1").transform.position;
+        swarm_positions[2] = GameObject.Find("p1_Battlefield_Card_2").transform.position;
+        swarm_positions[3] = GameObject.Find("p1_Battlefield_Card_3").transform.position;
+        swarm_positions[4] = GameObject.Find("p1_Battlefield_Card_4").transform.position;
+        swarm_positions[5] = GameObject.Find("p1_Battlefield_Card_5").transform.position;
+        swarm_positions[6] = GameObject.Find("p1_Battlefield_Card_6").transform.position;
+        swarm_positions[7] = GameObject.Find("p1_Battlefield_Card_7").transform.position;
+        swarm_positions[8] = GameObject.Find("p1_Battlefield_Card_8").transform.position;
+        swarm_positions[9] = GameObject.Find("p1_Battlefield_Card_9").transform.position;
+
+        for (int i = 0; i < MAX_HAND_SIZE; ++i)
+            spawn_position[i].z = CARD_DEPTH_Z;
+
+        for (int i = 0; i < MAX_SWARM_SIZE; ++i)
+        {
+            swarm_positions[i].z = CARD_DEPTH_Z;
+            swarm_creatures[i] = null;
+        }
+    }
 
 	// Use this for initialization
 	void Start ()
@@ -34,12 +68,6 @@ public class PlayerManagerScript : MonoBehaviour
         swarm_positions = new Vector3[MAX_SWARM_SIZE];
 
         swarm_creatures = new GameObject[MAX_SWARM_SIZE];
-
-        if (!card)
-        {
-            Debug.Log("Attempting to instantiate card prefab!");
-            //card = (GameObject)Resources.Load("../Card.prefab");
-        }
 
         setConstants();
 
@@ -61,169 +89,73 @@ public class PlayerManagerScript : MonoBehaviour
 
     void handlePlayerInput ()
     {
-        /* 
-         *  1. Viewing a card's text
-         *  2. Picking up a card
-         *  3. Leaving card view mode
-         *  4. Select target
-         *  5. Press End Phase Button
-         * 
-        */
-
-        // Begin Click -- select card or pass turn
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit rayHit;
+   
+        // Left Mouse Button Clicked
         if (Input.GetMouseButtonDown(0))
-        {        
-            /* Attempt to Select a Card */
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit rayHit;
-
+        {
+            /* Raycast to see what GameObject was clicked */
             if (Physics.Raycast(ray, out rayHit, Mathf.Infinity))
             {
-                if (rayHit.transform.gameObject != null && rayHit.transform.gameObject.tag == "Card")
+                if (rayHit.transform.gameObject != null)
                 {
-                    CardWrapperScript selectedCardWrapperScript;
-                    selectTarget = rayHit.transform.gameObject;
-
-                    selectedCardWrapperScript = selectTarget.GetComponent<CardWrapperScript>();
-
-                    if (selectedCardWrapperScript.swarmIndex == -1)
+                    // Clicked a Card
+                    if (rayHit.transform.gameObject.tag == "Card")
                     {
-                        selectFlag = true;
+                        clickTarget = rayHit.transform.gameObject;
 
-                        Debug.Log(string.Format("Selected Item = {0}", selectTarget));
+                        clickFlag = true;
                     }
                 }
             }
-
-            /* Check Button Press */
-
         }
-        
-        // Drag Click
-        if (selectFlag && Input.GetMouseButton(0))
+
+        // Left Mouse Button Held
+        if (clickFlag && Input.GetMouseButton(0))
         {
             /* Update Position of Selected Card */
-            Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
-            Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint);
+            Vector3 curPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
 
-            selectTarget.transform.position = new Vector3(curPosition.x, curPosition.y, 0.0f);
+            clickTarget.transform.position = new Vector3(curPosition.x, curPosition.y, 0.0f);
         }
 
         // End click
-        if (selectFlag && Input.GetMouseButtonUp(0))
+        if (clickFlag && Input.GetMouseButtonUp(0))
         {
-
-            if (selectTarget)
+            /* Raycast to see what GameObject was clicked */
+            if (Physics.Raycast(new Ray(clickTarget.transform.position, new Vector3(0.0f, 0.0f, 1.0f)) , out rayHit, Mathf.Infinity))
             {
-                viewOrPlay();
-
-                selectTarget = null;
-            }
-
-            selectFlag = false;
-        }
-    }
-
-    void viewOrPlay()
-    {
-        CardWrapperScript droppedCardWrapperScript;
-
-        if (selectTarget.tag != "Card")
-            return;
-
-        Vector3 cardDropPosition = selectTarget.transform.position;
-        droppedCardWrapperScript = selectTarget.GetComponent<CardWrapperScript>();
-
-        /* View */
-
-        /* Play */
-
-        // Is the dropped position between the y bounds of the battlfield
-        if (cardDropPosition.y >= playmatBounds.x
-                && cardDropPosition.y <= playmatBounds.y)
-        {
-            int closestSwarmPosition = -1;
-            Debug.Log("Played a card to the Battlefield!");
-
-            for (int i = 0; i < MAX_SWARM_SIZE; i++)
-            {
-                if (swarm_creatures[i] == null)
+                if (rayHit.transform.gameObject != null)
                 {
-                    Vector2 swarmPositionBounds = new Vector2(swarm_positions[i].x - (card.transform.lossyScale.x / 2.0f),
-                                            swarm_positions[i].x + (card.transform.lossyScale.x / 2.0f));
-
-                    if (swarmPositionBounds.x - 0.2f <= selectTarget.transform.position.x
-                        && swarmPositionBounds.y + 0.2f >= selectTarget.transform.position.x)
+                    // Placed Card on Swarm position
+                    if (rayHit.transform.gameObject.tag == "Swarm" && rayHit.transform.gameObject.GetComponent<SwarmLocationScript>().creature == null)
                     {
-                        closestSwarmPosition = i;
-                        break;
+                        // CURRENT: NEVER REACHING HERE
+
+                        Debug.Log(string.Format("Placed card at swarm position: {0}", rayHit.transform.gameObject.name));
+
+                        Vector3 placePosition = rayHit.transform.gameObject.transform.position;
+                        placePosition = new Vector3(placePosition.x, placePosition.y, CARD_DEPTH_Z);
+                        
+                        rayHit.transform.gameObject.GetComponent<SwarmLocationScript>().creature = clickTarget;
+
+                        clickTarget.GetComponent<CardWrapperScript>().placeCard(
+                                                CardPlace.PLAY, 
+                                                rayHit.transform.gameObject.GetComponent<SwarmLocationScript>().index,
+                                                placePosition, rayHit.transform.gameObject);
                     }
+
+                    Debug.Log(string.Format("Game Object Hit on End Click: {0}", rayHit.transform.gameObject.name));
+
                 }
             }
 
-            if (closestSwarmPosition >= 0)
-            {
-                swarm_creatures[closestSwarmPosition] = selectTarget;
-                selectTarget.transform.position = swarm_positions[closestSwarmPosition];
-
-                droppedCardWrapperScript.swarmIndex = closestSwarmPosition;
-            }
-        }
-        else
-        {
-            string respawn_location = "p1_Hand_" + selectTarget.name;
-
-            Debug.Log(string.Format("Name of respawn location game object = {0}", respawn_location));
-
-            Vector3 newCardLocation = GameObject.Find(respawn_location).transform.position;
-
-            selectTarget.transform.position = new Vector3(newCardLocation.x, newCardLocation.y, 4.8f);
-
-            if (selectTarget.GetComponent<CardWrapperScript>())
-            {
-                if (droppedCardWrapperScript.swarmIndex >= 0)
-                {
-                    droppedCardWrapperScript.swarmIndex = -1;
-                    swarm_creatures[droppedCardWrapperScript.swarmIndex] = null;
-                }
-            }
+            clickTarget = null;
+            clickFlag = false;
         }
     }
 
-    void setConstants()
-    {
-        GameObject playmat = GameObject.Find("p1_Battlefield");
-
-        playmatBounds = new Vector2(playmat.transform.position.y - (playmat.transform.lossyScale.y / 2.0f), 
-                                        playmat.transform.position.y + (playmat.transform.lossyScale.y / 2.0f));
-
-        spawn_position[0] = GameObject.Find("p1_Hand_Card_0").transform.position;
-        spawn_position[1] = GameObject.Find("p1_Hand_Card_1").transform.position;
-        spawn_position[2] = GameObject.Find("p1_Hand_Card_2").transform.position;
-        spawn_position[3] = GameObject.Find("p1_Hand_Card_3").transform.position;
-        spawn_position[4] = GameObject.Find("p1_Hand_Card_4").transform.position;
-        spawn_position[5] = GameObject.Find("p1_Hand_Card_5").transform.position;
-
-        swarm_positions[0] = GameObject.Find("p1_Battlefield_Card_0").transform.position;
-        swarm_positions[1] = GameObject.Find("p1_Battlefield_Card_1").transform.position;
-        swarm_positions[2] = GameObject.Find("p1_Battlefield_Card_2").transform.position;
-        swarm_positions[3] = GameObject.Find("p1_Battlefield_Card_3").transform.position;
-        swarm_positions[4] = GameObject.Find("p1_Battlefield_Card_4").transform.position;
-        swarm_positions[5] = GameObject.Find("p1_Battlefield_Card_5").transform.position;
-        swarm_positions[6] = GameObject.Find("p1_Battlefield_Card_6").transform.position;
-        swarm_positions[7] = GameObject.Find("p1_Battlefield_Card_7").transform.position;
-        swarm_positions[8] = GameObject.Find("p1_Battlefield_Card_8").transform.position;
-        swarm_positions[9] = GameObject.Find("p1_Battlefield_Card_9").transform.position;
-
-        for (int i = 0; i < MAX_HAND_SIZE; ++i)
-            spawn_position[i].z = 4.8f;
-
-        for (int i = 0; i < MAX_SWARM_SIZE; ++i)
-        {
-            swarm_positions[i].z = 4.8f;
-            swarm_creatures[i] = null;
-        }
-    }
 
     void drawCard (int x)
     {
@@ -231,7 +163,6 @@ public class PlayerManagerScript : MonoBehaviour
 
         for (int i = currentHandSize; i < newHandSize; i++)
         {
-            Debug.Log(string.Format("Current Hand Size = {0}", currentHandSize));
             GameObject localCard;
             
             localCard = Instantiate(card, spawn_position[i], Quaternion.identity) as GameObject;
