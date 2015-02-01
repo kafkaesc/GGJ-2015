@@ -115,9 +115,13 @@ public class PlayerManagerScript : MonoBehaviour
         if (clickFlag && Input.GetMouseButton(0))
         {
             /* Update Position of Selected Card */
-            Vector3 curPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
-
-            clickTarget.transform.position = new Vector3(curPosition.x, curPosition.y, 0.0f);
+            if (Physics.Raycast(ray, out rayHit, Mathf.Infinity))
+            {
+                if (rayHit.collider != null)
+                {
+                    clickTarget.transform.position = rayHit.point;
+                }
+            }
         }
 
         // End click
